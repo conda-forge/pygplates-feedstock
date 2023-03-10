@@ -28,6 +28,8 @@ proj:
 - 9.1.0
 python:
 - 3.9.* *_cpython
+qt_main:
+- '5.15'
 target_platform:
 - win-64
 vc:
