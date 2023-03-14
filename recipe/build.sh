@@ -6,7 +6,7 @@ BUILD_TYPE=Release
 # Note that CMAKE_INSTALL_PREFIX refers to Python's site-packages location.
 # Note that CMAKE_FIND_FRAMEWORK (macOS) is set to LAST to avoid finding frameworks
 #      (like Python and Qwt) outside the conda environment (it seems conda doesn't use frameworks).
-cmake -G "$CMAKE_GENERATOR" \
+cmake ${CMAKE_ARGS} -G "$CMAKE_GENERATOR" \
       -D CMAKE_BUILD_TYPE=$BUILD_TYPE \
       -D GPLATES_BUILD_GPLATES=FALSE \
       -D GPLATES_INSTALL_STANDALONE=FALSE \
