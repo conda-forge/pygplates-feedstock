@@ -4,7 +4,7 @@ package:
 
 source:
   url: https://earthbyte.org/webdav/ftp/earthbyte/pygplates/pygplates_0.39.0_src.tar.bz2
-  sha256: cdcde3e072d2b86bf7e81471d8fa9551eb908a9a9e5bb26c16a5de86ddb2ae4c
+  sha256: 49ba8490f46d62cbe13140bdfbb5a1bf31917fbf3d788fda0b14148a0c5df7cc
 
 build:
   skip: True  # [py<37]
@@ -13,6 +13,8 @@ build:
 
 requirements:
   build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cmake
     - make  # [unix]
     - {{ compiler('c') }}
