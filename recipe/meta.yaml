@@ -9,12 +9,13 @@ source:
 build:
   skip: True  # [py<37]
   skip: True  # [win and vc<14]
-  number: 2
+  number: 3
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
     - cmake
     - make  # [unix]
     - {{ compiler('c') }}
@@ -40,6 +41,7 @@ requirements:
   host:
     - pip
     - python
+    - numpy
     - cgal-cpp
     - glew
     - libglu     # [linux]
@@ -52,6 +54,7 @@ requirements:
     - zlib
   run:
     - python
+    - {{ pin_compatible('numpy') }}
     - cgal-cpp
     - gmp        # [unix]
     - mpir       # [win]
