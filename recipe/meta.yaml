@@ -4,12 +4,12 @@ package:
 
 source:
   url: https://earthbyte.org/webdav/ftp/earthbyte/pygplates/pygplates_0.39.0_src.tar.bz2
-  sha256: 49ba8490f46d62cbe13140bdfbb5a1bf31917fbf3d788fda0b14148a0c5df7cc
+  sha256: 74271fe78c8f38d71d3453654d9c563f21ee38e6c12525c844f1587f27335d6b
 
 build:
   skip: True  # [py<37]
   skip: True  # [win and vc<14]
-  number: 4
+  number: 5
 
 requirements:
   build:
