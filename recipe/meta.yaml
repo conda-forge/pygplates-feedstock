@@ -80,6 +80,7 @@ about:
   license_family: GPL
   license_file: COPYING
   doc_url: https://www.gplates.org/docs/pygplates/index.html
+  dev_url: https://github.com/GPlates/GPlates
 
 extra:
   recipe-maintainers:
