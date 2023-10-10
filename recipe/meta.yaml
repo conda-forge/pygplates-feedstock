@@ -7,8 +7,6 @@ source:
   sha256: cb6e186a5383d0a07880cd608e57d7d8d2f5e1d906b04234a0cae8ae28c0e537
 
 build:
-  skip: True  # [py<37]
-  skip: True  # [win and vc<14]
   number: 10
 
 requirements:
