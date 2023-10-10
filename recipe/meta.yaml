@@ -9,7 +9,7 @@ source:
 build:
   skip: True  # [py<37]
   skip: True  # [win and vc<14]
-  number: 9
+  number: 10
 
 requirements:
   build:
@@ -47,7 +47,8 @@ requirements:
     - libglu     # [linux]
     - xorg-libxfixes  # [linux]
     - qt-main
-    - boost
+    - libboost-devel
+    - libboost-python-devel
     - libgdal
     - proj
     - qwt
@@ -61,8 +62,6 @@ requirements:
     - glew
     - libglu     # [linux]
     - qt-main
-    - boost
-    - boost-cpp
     - libgdal
     - proj
     - qwt
