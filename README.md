@@ -9,6 +9,8 @@ Package license: GPL-2.0-only
 
 Summary: Python library for fine-grained access to GPlates functionality
 
+Development: https://github.com/GPlates/GPlates
+
 Documentation: https://www.gplates.org/docs/pygplates/index.html
 
 Current build status
