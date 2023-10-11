@@ -9,7 +9,7 @@ source:
 build:
   skip: True  # [py<37]
   skip: True  # [win and vc<14]
-  number: 9
+  number: 10
 
 requirements:
   build:
