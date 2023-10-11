@@ -1,5 +1,5 @@
 MACOSX_DEPLOYMENT_TARGET:
-- '11.0'
+- '10.9'
 boost:
 - 1.78.0
 boost_cpp:
@@ -21,9 +21,9 @@ glew:
 libgdal:
 - '3.7'
 macos_machine:
-- arm64-apple-darwin20.0.0
+- x86_64-apple-darwin13.4.0
 numpy:
-- '1.22'
+- '1.26'
 pin_run_as_build:
   boost:
     max_pin: x.x.x
@@ -35,11 +35,11 @@ pin_run_as_build:
 proj:
 - 9.3.0
 python:
-- 3.9.* *_cpython
+- 3.12.* *_cpython
 qt_main:
 - '5.15'
 target_platform:
-- osx-arm64
+- osx-64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
