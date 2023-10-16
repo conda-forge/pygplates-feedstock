@@ -4,12 +4,10 @@ package:
 
 source:
   url: https://earthbyte.org/webdav/ftp/earthbyte/pygplates/pygplates_0.39.0_src.tar.bz2
-  sha256: cb6e186a5383d0a07880cd608e57d7d8d2f5e1d906b04234a0cae8ae28c0e537
+  sha256: 77fdff7ed59c4d80fd1d195e912fb875da5057300ce9dd0c01da46830f0494b9
 
 build:
-  skip: True  # [py<37]
-  skip: True  # [win and vc<14]
-  number: 9
+  number: 10
 
 requirements:
   build:
@@ -47,7 +45,8 @@ requirements:
     - libglu     # [linux]
     - xorg-libxfixes  # [linux]
     - qt-main
-    - boost
+    - libboost-devel
+    - libboost-python-devel
     - libgdal
     - proj
     - qwt
@@ -61,8 +60,6 @@ requirements:
     - glew
     - libglu     # [linux]
     - qt-main
-    - boost
-    - boost-cpp
     - libgdal
     - proj
     - qwt
@@ -83,6 +80,7 @@ about:
   license_family: GPL
   license_file: COPYING
   doc_url: https://www.gplates.org/docs/pygplates/index.html
+  dev_url: https://github.com/GPlates/GPlates
 
 extra:
   recipe-maintainers:
