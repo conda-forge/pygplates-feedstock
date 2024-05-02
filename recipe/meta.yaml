@@ -3,8 +3,8 @@ package:
   version: 0.39
 
 source:
-  url: https://earthbyte.org/webdav/ftp/earthbyte/pygplates/pygplates_0.39.0_src.tar.bz2
-  sha256: 77fdff7ed59c4d80fd1d195e912fb875da5057300ce9dd0c01da46830f0494b9
+  url: https://earthbyte.org/webdav/ftp/earthbyte/pygplates/pygplates_0.39.0_src_build15.tar.bz2
+  sha256: e9873a8644e41d5867ad77bb60c343890d4df7f5be9e998fce465d8034237fd0
 
 build:
   number: 15
