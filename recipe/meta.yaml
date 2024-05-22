@@ -4,7 +4,7 @@ package:
 
 source:
   url: https://earthbyte.org/webdav/ftp/earthbyte/pygplates/pygplates_0.39.0_src_build15.tar.bz2
-  sha256: 4dbbeae0471293a81ab071aa06f5a7d61aca2b2cb65db2620166930ab6969d06
+  sha256: dfcf02a70a01fbe664dbb912c79fa5342dc29ad9a2725e603e643576c5b26e63
 
 build:
   number: 15
