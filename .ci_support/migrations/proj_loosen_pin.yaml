@@ -1,7 +1,8 @@
 __migrator:
   build_number: 1
+  commit_message: Loosen proj pin to 9.4
   kind: version
   migration_number: 1
-migrator_ts: 1701494989.7141423
+migrator_ts: 1717700335
 proj:
-- 9.3.1
+- '9.4'
