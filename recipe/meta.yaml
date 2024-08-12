@@ -1,13 +1,16 @@
+{% set name = "pygplates" %}
+{% set version = "0.47" %}
+
 package:
-  name: pygplates
-  version: 0.39
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: https://earthbyte.org/webdav/ftp/earthbyte/pygplates/pygplates_0.39.0_src.tar.bz2
-  sha256: 77fdff7ed59c4d80fd1d195e912fb875da5057300ce9dd0c01da46830f0494b9
+  url: https://earthbyte.org/webdav/ftp/earthbyte/pygplates/pygplates_0.47.0_src_build0.tar.bz2
+  sha256: 3e4e83020e75be9e14c44e478591041f3bd1b3c87e9bea85e7e36b775ba80878
 
 build:
-  number: 14
+  number: 0
 
 requirements:
   build:
@@ -17,6 +20,9 @@ requirements:
     - cmake
     - make  # [unix]
     - {{ compiler('c') }}
+    # Note: stdlib("c") should only be specified in the conda-forge feedstock (not for local conda builds).
+    #       Otherwise local conda builds will give a dependency error that "c_win-64 does not exist".
+    #- {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
     - {{ cdt('libx11-devel') }}          # [linux]
@@ -37,12 +43,13 @@ requirements:
     - {{ cdt('libxxf86vm-devel') }}      # [linux]
     - {{ cdt('libxdamage-devel') }}      # [linux]
   host:
-    - pip
     - python
+    - pip
+    - scikit-build-core
     - numpy
     - cgal-cpp
     - glew
-    - libglu     # [linux]
+    - libglu          # [linux]
     - xorg-libxfixes  # [linux]
     - qt-main
     - libboost-devel
