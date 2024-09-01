@@ -56,7 +56,7 @@ requirements:
     - {{ pin_compatible('numpy') }}
     - cgal-cpp
     - gmp        # [unix]
-    - mpir       # [win]
+    - gmp       # [win]
     - glew
     - libglu     # [linux]
     - qt-main
