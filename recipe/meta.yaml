@@ -39,6 +39,7 @@ requirements:
   host:
     - pip
     - python
+    - setuptools
     - numpy
     - cgal-cpp
     - glew
