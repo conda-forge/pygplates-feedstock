@@ -1,9 +1,15 @@
 MACOSX_DEPLOYMENT_TARGET:
-- '10.9'
+- '10.13'
+MACOSX_SDK_VERSION:
+- '10.13'
 c_compiler:
 - clang
 c_compiler_version:
 - '16'
+c_stdlib:
+- macosx_deployment_target
+c_stdlib_version:
+- '10.13'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -15,9 +21,9 @@ cxx_compiler_version:
 glew:
 - '2.1'
 libboost_devel:
-- '1.82'
+- '1.84'
 libboost_python_devel:
-- '1.82'
+- '1.84'
 libgdal:
 - '3.8'
 macos_machine:
@@ -29,7 +35,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 proj:
-- 9.3.1
+- '9.4'
 python:
 - 3.8.* *_cpython
 qt_main:
@@ -42,4 +48,4 @@ zip_keys:
 - - python
   - numpy
 zlib:
-- '1.2'
+- '1'
