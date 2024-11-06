@@ -3,11 +3,11 @@ package:
   version: 0.39
 
 source:
-  url: https://earthbyte.org/webdav/ftp/earthbyte/pygplates/pygplates_0.39.0_src.tar.bz2
-  sha256: 77fdff7ed59c4d80fd1d195e912fb875da5057300ce9dd0c01da46830f0494b9
+  url: https://earthbyte.org/webdav/ftp/earthbyte/pygplates/pygplates_0.39.0_src_build15.tar.bz2
+  sha256: dfcf02a70a01fbe664dbb912c79fa5342dc29ad9a2725e603e643576c5b26e63
 
 build:
-  number: 14
+  number: 15
 
 requirements:
   build:
@@ -17,6 +17,7 @@ requirements:
     - cmake
     - make  # [unix]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
     - {{ cdt('libx11-devel') }}          # [linux]
