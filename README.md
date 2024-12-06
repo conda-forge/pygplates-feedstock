@@ -38,13 +38,6 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_numpy1.22python3.8.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18804&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygplates-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_numpy1.22python3.8.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
               <td>linux_64_numpy1.22python3.9.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18804&branchName=main">
@@ -70,13 +63,6 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18804&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygplates-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_numpy1.22python3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_aarch64_numpy1.22python3.8.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18804&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygplates-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_numpy1.22python3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -108,13 +94,6 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>linux_ppc64le_numpy1.22python3.8.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18804&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygplates-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_numpy1.22python3.8.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
               <td>linux_ppc64le_numpy1.22python3.9.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18804&branchName=main">
@@ -140,13 +119,6 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18804&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygplates-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_numpy1.22python3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64_numpy1.22python3.8.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18804&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygplates-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_numpy1.22python3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -178,13 +150,6 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>osx_arm64_numpy1.22python3.8.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18804&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygplates-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_numpy1.22python3.8.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
               <td>osx_arm64_numpy1.22python3.9.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18804&branchName=main">
@@ -210,13 +175,6 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18804&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygplates-feedstock?branchName=main&jobName=win&configuration=win%20win_64_numpy1.22python3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64_numpy1.22python3.8.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18804&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygplates-feedstock?branchName=main&jobName=win&configuration=win%20win_64_numpy1.22python3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -258,14 +216,14 @@ Current release info
 Installing pygplates
 ====================
 
-Installing `pygplates` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `pygplates` from the `conda-forge/label/pygplates_rc` channel can be achieved by adding `conda-forge/label/pygplates_rc` to your channels with:
 
 ```
-conda config --add channels conda-forge
+conda config --add channels conda-forge/label/pygplates_rc
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `pygplates` can be installed with `conda`:
+Once the `conda-forge/label/pygplates_rc` channel has been enabled, `pygplates` can be installed with `conda`:
 
 ```
 conda install pygplates
@@ -280,26 +238,26 @@ mamba install pygplates
 It is possible to list all of the versions of `pygplates` available on your platform with `conda`:
 
 ```
-conda search pygplates --channel conda-forge
+conda search pygplates --channel conda-forge/label/pygplates_rc
 ```
 
 or with `mamba`:
 
 ```
-mamba search pygplates --channel conda-forge
+mamba search pygplates --channel conda-forge/label/pygplates_rc
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search pygplates --channel conda-forge
+mamba repoquery search pygplates --channel conda-forge/label/pygplates_rc
 
 # List packages depending on `pygplates`:
-mamba repoquery whoneeds pygplates --channel conda-forge
+mamba repoquery whoneeds pygplates --channel conda-forge/label/pygplates_rc
 
 # List dependencies of `pygplates`:
-mamba repoquery depends pygplates --channel conda-forge
+mamba repoquery depends pygplates --channel conda-forge/label/pygplates_rc
 ```
 
 
