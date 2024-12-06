@@ -37,8 +37,9 @@ requirements:
     - {{ cdt('libxxf86vm-devel') }}      # [linux]
     - {{ cdt('libxdamage-devel') }}      # [linux]
   host:
-    - pip
     - python
+    - pip
+    - scikit-build-core
     - numpy
     - cgal-cpp
     - glew
