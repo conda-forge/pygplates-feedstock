@@ -42,8 +42,10 @@ requirements:
     - scikit-build-core
     - numpy
     - cgal-cpp
+    - gmp
+    - mpfr
     - glew
-    - libglu     # [linux]
+    - libglu          # [linux]
     - xorg-libxfixes  # [linux]
     - qt-main
     - libboost-devel
@@ -55,9 +57,6 @@ requirements:
   run:
     - python
     - {{ pin_compatible('numpy') }}
-    - cgal-cpp
-    - gmp        # [unix]
-    - mpir       # [win]
     - glew
     - libglu     # [linux]
     - qt-main
