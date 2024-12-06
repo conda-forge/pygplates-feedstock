@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 24d5eccfb1716d4fd1eb109d0a46cf62a58e247676623ff578d773904b94e645
 
 build:
@@ -49,6 +49,8 @@ requirements:
     - gmp
     - mpfr
     - glew
+    - libopengl-devel # [linux]
+    - libgl-devel     # [linux]
     - libglu          # [linux]
     - xorg-libxfixes  # [linux]
     - qt-main
