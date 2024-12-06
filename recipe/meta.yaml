@@ -49,10 +49,11 @@ requirements:
     - gmp
     - mpfr
     - glew
-    - libopengl-devel # [linux]
-    - libgl-devel     # [linux]
-    - libglu          # [linux]
-    - xorg-libxfixes  # [linux]
+    - libopengl-devel  # [linux]
+    - libgl-devel      # [linux]
+    - libglx-devel     # [linux]
+    - libglu           # [linux]
+    - xorg-libxfixes   # [linux]
     - qt-main
     - libboost-devel
     - libboost-python-devel
