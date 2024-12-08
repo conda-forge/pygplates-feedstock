@@ -1,13 +1,16 @@
+{% set name = "pygplates" %}
+{% set version = "1.0.0rc1" %}
+
 package:
-  name: pygplates
-  version: 0.39
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: https://earthbyte.org/webdav/ftp/earthbyte/pygplates/pygplates_0.39.0_src.tar.bz2
-  sha256: 77fdff7ed59c4d80fd1d195e912fb875da5057300ce9dd0c01da46830f0494b9
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 24d5eccfb1716d4fd1eb109d0a46cf62a58e247676623ff578d773904b94e645
 
 build:
-  number: 14
+  number: 0
 
 requirements:
   build:
@@ -17,6 +20,7 @@ requirements:
     - cmake
     - make  # [unix]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
     - {{ cdt('libx11-devel') }}          # [linux]
@@ -37,13 +41,19 @@ requirements:
     - {{ cdt('libxxf86vm-devel') }}      # [linux]
     - {{ cdt('libxdamage-devel') }}      # [linux]
   host:
-    - pip
     - python
+    - pip
+    - scikit-build-core
     - numpy
     - cgal-cpp
+    - gmp
+    - mpfr
     - glew
-    - libglu     # [linux]
-    - xorg-libxfixes  # [linux]
+    - libopengl-devel  # [linux]
+    - libgl-devel      # [linux]
+    - libglx-devel     # [linux]
+    - libglu           # [linux]
+    - xorg-libxfixes   # [linux]
     - qt-main
     - libboost-devel
     - libboost-python-devel
@@ -54,9 +64,6 @@ requirements:
   run:
     - python
     - {{ pin_compatible('numpy') }}
-    - cgal-cpp
-    - gmp        # [unix]
-    - mpir       # [win]
     - glew
     - libglu     # [linux]
     - qt-main

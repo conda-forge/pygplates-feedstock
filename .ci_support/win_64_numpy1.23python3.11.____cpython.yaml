@@ -1,19 +1,25 @@
 c_compiler:
 - vs2019
+c_stdlib:
+- vs
 channel_sources:
 - conda-forge
 channel_targets:
-- conda-forge main
+- conda-forge pygplates_rc
 cxx_compiler:
 - vs2019
 glew:
 - '2.1'
+gmp:
+- '6'
 libboost_devel:
-- '1.82'
+- '1.84'
 libboost_python_devel:
-- '1.82'
+- '1.84'
 libgdal:
-- '3.8'
+- '3.9'
+mpfr:
+- '4'
 numpy:
 - '1.23'
 pin_run_as_build:
@@ -21,7 +27,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 proj:
-- 9.3.1
+- '9.5'
 python:
 - 3.11.* *_cpython
 qt_main:
@@ -32,4 +38,4 @@ zip_keys:
 - - python
   - numpy
 zlib:
-- '1.2'
+- '1'
