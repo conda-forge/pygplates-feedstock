@@ -13,11 +13,11 @@ glew:
 gmp:
 - '6'
 libboost_devel:
-- '1.84'
+- '1.86'
 libboost_python_devel:
-- '1.84'
+- '1.86'
 libgdal:
-- '3.9'
+- '3.10'
 mpfr:
 - '4'
 numpy:
