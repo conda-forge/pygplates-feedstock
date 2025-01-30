@@ -1,13 +1,23 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '11.0'
+MACOSX_SDK_VERSION:
+- '11.0'
 c_compiler:
-- vs2019
+- clang
+c_compiler_version:
+- '18'
 c_stdlib:
-- vs
+- macosx_deployment_target
+c_stdlib_version:
+- '11.0'
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge pygplates_rc
 cxx_compiler:
-- vs2019
+- clangxx
+cxx_compiler_version:
+- '18'
 glew:
 - '2.1'
 gmp:
@@ -18,10 +28,12 @@ libboost_python_devel:
 - '1.86'
 libgdal:
 - '3.10'
+macos_machine:
+- arm64-apple-darwin20.0.0
 mpfr:
 - '4'
 numpy:
-- '1.22'
+- '2.0'
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -33,8 +45,10 @@ python:
 qt_main:
 - '5.15'
 target_platform:
-- win-64
+- osx-arm64
 zip_keys:
+- - c_compiler_version
+  - cxx_compiler_version
 - - python
   - numpy
 zlib:
