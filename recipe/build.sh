@@ -1,3 +1,6 @@
+#!/bin/bash
+set -ex
+
 if [[ "$target_platform" == "linux-ppc64le" ]]; then
   # Avoid error 'relocation truncated to fit: R_PPC64_REL24'.
   export CFLAGS="$(echo ${CFLAGS} | sed 's/-fno-plt//g') -fplt"
