@@ -10,7 +10,7 @@ source:
   sha256: 24d5eccfb1716d4fd1eb109d0a46cf62a58e247676623ff578d773904b94e645
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:
@@ -63,7 +63,6 @@ requirements:
     - zlib
   run:
     - python
-    - {{ pin_compatible('numpy') }}
     - glew
     - libglu     # [linux]
     - qt-main
