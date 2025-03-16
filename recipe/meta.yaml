@@ -16,6 +16,7 @@ requirements:
     - numpy                                  # [build_platform != target_platform]
     - cmake
     - make  # [unix]
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
