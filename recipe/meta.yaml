@@ -1,13 +1,15 @@
+{% set version = "2.5" %}
+
 package:
   name: pygplates
-  version: 0.39
+  version: {{ version }}
 
 source:
-  url: https://earthbyte.org/webdav/ftp/earthbyte/pygplates/pygplates_0.39.0_src.tar.bz2
-  sha256: 77fdff7ed59c4d80fd1d195e912fb875da5057300ce9dd0c01da46830f0494b9
+  url: https://github.com/GPlates/GPlates/archive/refs/tags/GPlates-{{ version }}.tar.gz
+  sha256: 8deea534b115d7748d76203e0ef9a3e47ee7f6e0582da49a2fc1c93bab8d0542
 
 build:
-  number: 14
+  number: 0
 
 requirements:
   build:
