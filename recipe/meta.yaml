@@ -1,19 +1,17 @@
 {% set name = "pygplates" %}
-{% set version = "1.0.0rc1" %}
+{% set version = "1.0.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 24d5eccfb1716d4fd1eb109d0a46cf62a58e247676623ff578d773904b94e645
-  patches:
-    - patches/0001-When-have-to-use-NumPy-1.x-Python-3.8-use-oldest-sup.patch
-    - patches/0002-Update-to-version-0.10-but-avoid-0.11-for-scikit-bui.patch
+  #url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://earthbyte.org/webdav/ftp/earthbyte/pygplates/pygplates_1.0.0rc1.post2_src.tar.bz2
+  sha256: 71d872380fc76b646ad540f11592e31775d8b84e4e52e115507941356b1eb314
 
 build:
-  number: 4
+  number: 0
 
 requirements:
   build:

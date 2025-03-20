@@ -1,6 +1,3 @@
-channel_targets:
-  - conda-forge pygplates_rc
-
 # On Windows, use Visual Studio 2019 (msvc 142) since Proj 9.1 requires it.
 c_compiler:    # [win]
 - vs2019       # [win]
