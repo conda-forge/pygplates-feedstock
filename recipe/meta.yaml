@@ -46,7 +46,7 @@ requirements:
   host:
     - python
     - pip
-    - scikit-build-core
+    - scikit-build-core <0.11  # avoid version 0.11 for now (causing problems with license.file)
     - numpy
     - cgal-cpp
     - gmp
