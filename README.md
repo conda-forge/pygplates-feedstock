@@ -258,14 +258,14 @@ Current release info
 Installing pygplates
 ====================
 
-Installing `pygplates` from the `conda-forge/label/pygplates_rc` channel can be achieved by adding `conda-forge/label/pygplates_rc` to your channels with:
+Installing `pygplates` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
-conda config --add channels conda-forge/label/pygplates_rc
+conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge/label/pygplates_rc` channel has been enabled, `pygplates` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `pygplates` can be installed with `conda`:
 
 ```
 conda install pygplates
@@ -280,26 +280,26 @@ mamba install pygplates
 It is possible to list all of the versions of `pygplates` available on your platform with `conda`:
 
 ```
-conda search pygplates --channel conda-forge/label/pygplates_rc
+conda search pygplates --channel conda-forge
 ```
 
 or with `mamba`:
 
 ```
-mamba search pygplates --channel conda-forge/label/pygplates_rc
+mamba search pygplates --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search pygplates --channel conda-forge/label/pygplates_rc
+mamba repoquery search pygplates --channel conda-forge
 
 # List packages depending on `pygplates`:
-mamba repoquery whoneeds pygplates --channel conda-forge/label/pygplates_rc
+mamba repoquery whoneeds pygplates --channel conda-forge
 
 # List dependencies of `pygplates`:
-mamba repoquery depends pygplates --channel conda-forge/label/pygplates_rc
+mamba repoquery depends pygplates --channel conda-forge
 ```
 
 
