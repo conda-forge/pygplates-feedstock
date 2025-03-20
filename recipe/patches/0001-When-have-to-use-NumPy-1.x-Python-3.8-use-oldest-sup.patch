@@ -1,0 +1,29 @@
+From 82a8e8c465100884240b16cc9927e29c6375dac5 Mon Sep 17 00:00:00 2001
+From: John Cannon <john.cannon@sydney.edu.au>
+Date: Wed, 4 Dec 2024 00:01:52 +1100
+Subject: [PATCH 1/2] When have to use NumPy 1.x (Python 3.8) use oldest
+ supported version.
+
+Since NumPy 1.x is not backward compatible (like 2.x is).
+---
+ pyproject.toml | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index c6873308f..464302b66 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -13,7 +13,9 @@ requires = [
+     #       However the NumPy *runtime* requirement (in 'dependencies' below) needs no version restriction.
+     'numpy>=2.0; python_version>="3.9"',
+     # Note: Python 3.8 is not supported by NumPy 2.0.
+-    'numpy; python_version<"3.9"'
++    #       Also note that *building* against NumPy 1.x does NOT support earlier (<1.x) versions at runtime.
++    #       So we use the oldest supported NumPy for the Python version and platform.
++    'oldest-supported-numpy; python_version<"3.9"'
+ ]
+ 
+ #
+-- 
+2.43.0.windows.1
+
