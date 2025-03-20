@@ -8,9 +8,12 @@ package:
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 24d5eccfb1716d4fd1eb109d0a46cf62a58e247676623ff578d773904b94e645
+  patches:
+    - patches/0001-When-have-to-use-NumPy-1.x-Python-3.8-use-oldest-sup.patch
+    - patches/0002-Update-to-version-0.10-but-avoid-0.11-for-scikit-bui.patch
 
 build:
-  number: 3
+  number: 4
 
 requirements:
   build:
@@ -43,7 +46,7 @@ requirements:
   host:
     - python
     - pip
-    - scikit-build-core
+    - scikit-build-core <0.11  # avoid version 0.11 for now (causing problems with license.file)
     - numpy
     - cgal-cpp
     - gmp

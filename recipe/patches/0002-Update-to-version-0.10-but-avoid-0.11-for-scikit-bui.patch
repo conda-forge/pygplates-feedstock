@@ -1,0 +1,71 @@
+From 2fb156189145ea1ac4d2f6b7890e496ab77d14f4 Mon Sep 17 00:00:00 2001
+From: John Cannon <john.cannon@sydney.edu.au>
+Date: Thu, 20 Mar 2025 15:50:36 +1100
+Subject: [PATCH 2/2] Update to version 0.10 but avoid 0.11 for
+ scikit-build-core.
+
+0.11 appears to be causing issues for us, that 0.10 does not.
+---
+ pyproject.toml | 28 +++++++++++++++++++---------
+ 1 file changed, 19 insertions(+), 9 deletions(-)
+
+diff --git a/pyproject.toml b/pyproject.toml
+index 464302b66..acfa996b2 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -5,7 +5,17 @@
+ build-backend = "scikit_build_core.build"
+ requires = [
+     # Using scikit-build-core backend build system.
+-    'scikit-build-core',
++    # Use minimum version 0.10.
++    #
++    # NOTE: Don't use version 0.11 yet.
++    #       This avoids two problems:
++    #       1. Error due to newlines in 'license.file'.
++    #          This is fixed in scikit-build-core but not yet available in a patch release.
++    #          See https://github.com/scikit-build/scikit-build-core/issues/1006.
++    #       2. NumPy is not getting installed as a *runtime* dependency (via 'project.dependencies').
++    #          I don't see a GitHub issue for this though (so might be something I'm doing).
++    # TODO: Remove max version restriction when this is fixed in scikit-build-core.
++    'scikit-build-core>=0.10,<0.11',
+ 
+     # PyGPlates accesses the NumPy C API.
+     #
+@@ -70,25 +80,25 @@ Discussions = "https://discourse.gplates.org/"
+ [tool.scikit-build]
+ 
+ # Scikit-build-core minimum version required.
+-minimum-version = "0.9"
++minimum-version = "build-system.requires"
+ 
+ # Optionally specify a build directory (uses temp dir by default).
+ # This can give rebuild speedups (eg, during development).
+ #build-dir = "dist/build/{wheel_tag}"
+ 
+-# Make release builds.
+-cmake.build-type = "Release"
+-
+ # Build target is 'pygplates'.
+-cmake.targets = ["pygplates"]
++build.targets = ["pygplates"]
+ 
+ # Optionally enable CMake verbose output (eg, during development).
+ # For example, to show compiler command-line flags/options.
+-#cmake.verbose = true
++#build.verbose = true
++
++# Make release builds.
++cmake.build-type = "Release"
+ 
+ # Our minimum requirement for CMake.
+-# Should match 'cmake_minimum_required' in 'CMakeLists.txt' in root source dir.
+-cmake.version = ">=3.16"
++# Look up 'cmake_minimum_required' in 'CMakeLists.txt' in root source dir.
++cmake.version = "CMakeLists.txt"
+ 
+ # Scikit-build-core's internal logging level ("DEBUG", "INFO", "WARNING" or "ERROR").
+ logging.level = "WARNING"
+-- 
+2.43.0.windows.1
+
