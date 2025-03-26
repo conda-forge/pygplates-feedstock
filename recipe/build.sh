@@ -1,21 +1,19 @@
-BUILD_TYPE=Release
+#!/bin/bash
+set -ex
 
-# Configure pyGPlates.
+if [[ "$target_platform" == "linux-ppc64le" ]]; then
+  # Avoid error 'relocation truncated to fit: R_PPC64_REL24'.
+  export CFLAGS="$(echo ${CFLAGS} | sed 's/-fno-plt//g') -fplt"
+  export CXXFLAGS="$(echo ${CXXFLAGS} | sed 's/-fno-plt//g') -fplt"
+fi
+
+# Build and install pyGPlates.
 #
-# Note that CMAKE_BUILD_TYPE is ignored for multi-configuration tools (eg, Visual Studio).
-# Note that CMAKE_INSTALL_PREFIX refers to Python's site-packages location.
+# Pip uses the scikit-build-core build backend to compile/install pyGPlates using CMake (see pyproject.toml).
+#
 # Note that CMAKE_FIND_FRAMEWORK (macOS) is set to LAST to avoid finding frameworks
 #      (like Python and Qwt) outside the conda environment (it seems conda doesn't use frameworks).
-cmake ${CMAKE_ARGS} -G "$CMAKE_GENERATOR" \
-      -D CMAKE_BUILD_TYPE=$BUILD_TYPE \
-      -D GPLATES_BUILD_GPLATES=FALSE \
-      -D GPLATES_INSTALL_STANDALONE=FALSE \
-      -D "CMAKE_PREFIX_PATH=$PREFIX" \
-      -D "CMAKE_INSTALL_PREFIX=$SP_DIR" \
-      -D CMAKE_FIND_FRAMEWORK=LAST \
+CMAKE_BUILD_PARALLEL_LEVEL=$CPU_COUNT $PYTHON -m pip install -vv \
+      -C "cmake.define.CMAKE_PREFIX_PATH=$PREFIX" \
+      -C cmake.define.CMAKE_FIND_FRAMEWORK=LAST \
       "$SRC_DIR"
-
-# Compile pyGPlates.
-#
-# Note that '--config' is only used by multi-configuration tools (eg, Visual Studio).
-cmake --build . --parallel $CPU_COUNT --config $BUILD_TYPE --target install-into-python
