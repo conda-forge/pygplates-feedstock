@@ -6,9 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  #url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  url: https://earthbyte.org/webdav/ftp/earthbyte/pygplates/pygplates_1.0.0_src.tar.bz2
-  sha256: bfb4e1cc3f8fa50bcdc535bc5826f7b92dd915a9ced0f5d92894900198711d57
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 620a130eb1cdc042868d2e1251596b2edb6e1ce1596fabe1de38962190499320
 
 build:
   number: 0
