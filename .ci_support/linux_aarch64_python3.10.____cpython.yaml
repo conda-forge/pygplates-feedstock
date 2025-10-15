@@ -37,7 +37,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 proj:
-- '9.6'
+- '9.7'
 python:
 - 3.10.* *_cpython
 qt_main:
@@ -47,7 +47,5 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
-- - python
-  - channel_sources
 zlib:
 - '1'
