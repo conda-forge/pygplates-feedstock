@@ -9,13 +9,13 @@ channel_targets:
 cxx_compiler:
 - vs2022
 glew:
-- '2.1'
+- '2.2'
 gmp:
 - '6'
 libboost_devel:
-- '1.86'
+- '1.88'
 libboost_python_devel:
-- '1.86'
+- '1.88'
 libgdal:
 - '3.11'
 mpfr:
