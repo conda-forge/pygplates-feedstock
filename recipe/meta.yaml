@@ -10,7 +10,7 @@ source:
   sha256: 620a130eb1cdc042868d2e1251596b2edb6e1ce1596fabe1de38962190499320
 
 build:
-  number: 7
+  number: 8
 
 requirements:
   build:
@@ -38,7 +38,6 @@ requirements:
     - xorg-libxtst                       # [linux]
     - xorg-libxxf86vm                    # [linux]
     - xorg-xorgproto                     # [linux]
-    - {{ cdt('libselinux-devel') }}      # [linux]
   host:
     - python
     - pip
