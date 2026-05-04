@@ -53,21 +53,21 @@ requirements:
     - libglx-devel     # [linux]
     - libglu           # [linux]
     - xorg-libxfixes   # [linux]
-    - qt-main
+    - qt-main <6 # Qt5
     - libboost-devel
     - libboost-python-devel
     - libgdal
     - proj
-    - qwt
+    - qwt <=6.2.0  # Use a version that only works with Qt5
     - zlib
   run:
     - python
     - glew
     - libglu     # [linux]
-    - qt-main
+    - qt-main <6 # Qt5
     - libgdal
     - proj
-    - qwt
+    - qwt <=6.2.0  # Use a version that only works with Qt5
     - zlib
 
 test:
