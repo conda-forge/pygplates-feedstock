@@ -20,7 +20,6 @@ set "CMAKE_GENERATOR=NMake Makefiles"
 ::      (which can reference a Boost outside of conda). Also, CGAL looks for Boost too.
 %PYTHON% -m pip install -vv ^
       -C cmake.define.GPLATES_MSVC_PARALLEL_BUILD=FALSE ^
-      -C build.tool-args="-j1" ^
       -C "cmake.define.CMAKE_PREFIX_PATH=%PREFIX%;%LIBRARY_PREFIX%" ^
       -C "cmake.define.Boost_ROOT=%LIBRARY_PREFIX%" ^
       "%SRC_DIR%"
