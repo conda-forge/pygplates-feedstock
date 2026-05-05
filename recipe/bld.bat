@@ -1,6 +1,13 @@
 :: Force the 64-bit native toolset (important to avoid "C1060: compiler is out of heap space").
 call "%VSINSTALLDIR%VC\Auxiliary\Build\vcvarsall.bat" x64
 
+:: Unset conda-build's automatic CMake variables.
+:: This prevents the error:
+::   Generator NMake Makefiles does not support platform specification, but platform x64 was specified.
+set CMAKE_GENERATOR_PLATFORM=
+set CMAKE_GENERATOR_TOOLSET=
+set CMAKE_GENERATOR=
+
 :: Use nmake makefiles to force single CPU usage and also provide a clean virtual memory reset
 :: for every file (hoping to remove or reduce "C1060: compiler is out of heap space").
 set "CMAKE_GENERATOR=NMake Makefiles"
