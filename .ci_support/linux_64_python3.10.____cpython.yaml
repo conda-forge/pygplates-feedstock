@@ -40,8 +40,6 @@ proj:
 - '9.8'
 python:
 - 3.10.* *_cpython
-qt_main:
-- '5.15'
 target_platform:
 - linux-64
 zip_keys:

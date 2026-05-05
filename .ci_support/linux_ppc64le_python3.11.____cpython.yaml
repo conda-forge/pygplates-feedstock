@@ -40,8 +40,6 @@ proj:
 - '9.8'
 python:
 - 3.11.* *_cpython
-qt_main:
-- '5.15'
 target_platform:
 - linux-ppc64le
 zip_keys:
