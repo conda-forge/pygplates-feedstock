@@ -1,3 +1,10 @@
+:: Force the 64-bit native toolset (important to avoid "C1060: compiler is out of heap space").
+call "%VSINSTALLDIR%VC\Auxiliary\Build\vcvarsall.bat" x64
+
+:: Use nmake makefiles to force single CPU usage and also provide a clean virtual memory reset
+:: for every file (hoping to remove or reduce "C1060: compiler is out of heap space").
+set "CMAKE_GENERATOR=NMake Makefiles"
+
 :: Build and install pyGPlates.
 ::
 :: Pip uses the scikit-build-core build backend to compile/install pyGPlates using CMake (see pyproject.toml).
@@ -6,6 +13,7 @@
 ::      (which can reference a Boost outside of conda). Also, CGAL looks for Boost too.
 %PYTHON% -m pip install -vv ^
       -C cmake.define.GPLATES_MSVC_PARALLEL_BUILD=FALSE ^
+      -C build.tool-args="-j1" ^
       -C "cmake.define.CMAKE_PREFIX_PATH=%PREFIX%;%LIBRARY_PREFIX%" ^
       -C "cmake.define.Boost_ROOT=%LIBRARY_PREFIX%" ^
       "%SRC_DIR%"
