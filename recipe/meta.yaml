@@ -10,7 +10,7 @@ source:
   sha256: 620a130eb1cdc042868d2e1251596b2edb6e1ce1596fabe1de38962190499320
 
 build:
-  number: 7
+  number: 8
 
 requirements:
   build:
@@ -53,21 +53,21 @@ requirements:
     - libglx-devel     # [linux]
     - libglu           # [linux]
     - xorg-libxfixes   # [linux]
-    - qt-main
+    - qt-main <6 # Qt5
     - libboost-devel
     - libboost-python-devel
     - libgdal
     - proj
-    - qwt
+    - qwt <=6.2.0  # Use a version that only works with Qt5
     - zlib
   run:
     - python
     - glew
     - libglu     # [linux]
-    - qt-main
+    - qt-main <6 # Qt5
     - libgdal
     - proj
-    - qwt
+    - qwt <=6.2.0  # Use a version that only works with Qt5
     - zlib
 
 test:
