@@ -23,9 +23,9 @@ glew:
 gmp:
 - '6'
 libboost_devel:
-- '1.88'
+- '1.90'
 libboost_python_devel:
-- '1.88'
+- '1.90'
 libgdal:
 - '3.13'
 macos_machine:
