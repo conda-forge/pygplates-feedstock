@@ -10,9 +10,10 @@ source:
   sha256: 620a130eb1cdc042868d2e1251596b2edb6e1ce1596fabe1de38962190499320
   patches:
     - patches/fix-gdal-3.13-compile-error.patch
+    - patches/fix-boost-1.89-cmake-error.patch
 
 build:
-  number: 9
+  number: 10
 
 requirements:
   build:
