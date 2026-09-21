@@ -11,6 +11,7 @@ source:
   patches:
     - patches/fix-gdal-3.13-compile-error.patch
     - patches/fix-boost-1.89-cmake-error.patch
+    - patches/fix-clang-21-compile-error.patch
 
 build:
   number: 11
