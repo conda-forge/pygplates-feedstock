@@ -1,86 +1,95 @@
 {% set name = "pygplates" %}
-{% set version = "1.0.0" %}
+
+# Copied from 'pygplates/conda/' in the GPlates repository (branch 'release/pygplates-1.1'),
+# switched to its FEEDSTOCK form: a literal version, and the PyPI sdist as the source. That
+# directory's README.md says why the recipe is the way it is. The version must be set ABOVE
+# 'package:' - Jinja runs '{% set %}' statements in document order.
+{% set version = "1.1.0rc1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 620a130eb1cdc042868d2e1251596b2edb6e1ce1596fabe1de38962190499320
-  patches:
-    - patches/fix-gdal-3.13-compile-error.patch
-    - patches/fix-boost-1.89-cmake-error.patch
-    - patches/fix-clang-21-compile-error.patch
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 9a32ed9fddb4ef88f451b1fc4dd0a7fcf817c8558d38200442b4a9e8d83428e7
 
 build:
-  number: 12
+  number: 0
 
 requirements:
   build:
+    # Cross builds only. None at present, but pyGPlates 1.0 cross-compiled three platforms, and
+    # pygplates/conda/README.md (in the source) says why these entries are needed.
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - cmake
     - make  # [unix]
     - {{ compiler('c') }}
+    # Locally this needs the c_stdlib values in conda_build_config.yaml (conda-build has no default
+    # and would ask for a nonexistent 'c_win-64'); conda-forge supplies them itself.
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-    - libdrm                             # [linux]
-    - libegl-devel                       # [linux]
-    - libgl-devel                        # [linux]
-    - xorg-libx11                        # [linux]
-    - xorg-libxau                        # [linux]
-    - xorg-libxcomposite                 # [linux]
-    - xorg-libxcursor                    # [linux]
-    - xorg-libxdamage                    # [linux]
-    - xorg-libxext                       # [linux]
-    - xorg-libxi                         # [linux]
-    - xorg-libxrandr                     # [linux]
-    - xorg-libxrender                    # [linux]
-    - xorg-libxscrnsaver                 # [linux]
-    - xorg-libxtst                       # [linux]
-    - xorg-libxxf86vm                    # [linux]
-    - xorg-xorgproto                     # [linux]
-    - {{ cdt('libselinux-devel') }}      # [linux]
   host:
     - python
     - pip
-    - scikit-build-core <0.11  # avoid version 0.11 for now (causing problems with license.file)
+    # Keep in sync with the [build-system] requires bounds in the root 'pyproject.toml', which
+    # explains them - conda-build runs pip without build isolation, so this pin (not that one)
+    # selects the backend version here.
+    - scikit-build-core >=0.11.1,<2
+    # Must be NumPy 2.x at build time (pyproject's 'numpy>=2.0' build requirement is not enforced
+    # here): a module built against 1.x refuses to import under NumPy 2. conda-forge pins numpy 2;
+    # conda_build_config.yaml does the same locally. Without NumPy, configure fails
+    # (src/CMakeLists.txt).
     - numpy
+    # CGAL is header-only (no run_exports), so host-only. GMP/MPFR reach the link line only through
+    # the CGAL::CGAL target; their run_exports cover run time.
     - cgal-cpp
     - gmp
     - mpfr
-    - glew
-    - libopengl-devel  # [linux]
-    - libgl-devel      # [linux]
-    - libglx-devel     # [linux]
-    - libglu           # [linux]
-    - xorg-libxfixes   # [linux]
-    - qt-main <6 # Qt5
+    # The module links Qt Core ONLY (src/CMakeLists.txt) - no Gui/Widgets/OpenGL - so no GLEW, Qwt,
+    # libGL/EGL/GLX/GLU or X11 anywhere in this recipe. The test block fails if any creep back.
+    - qt6-main
     - libboost-devel
     - libboost-python-devel
+    # The metapackage, not libgdal-core: its run_exports carry the plugin drivers (netCDF etc).
     - libgdal
     - proj
-    - qwt <=6.2.0  # Use a version that only works with Qt5
     - zlib
   run:
+    # Explicit as well as via the host run_exports (belt-and-braces: the feedstock builds with
+    # error_overlinking). Each of these is absorbed by the pinned run_export of the same package,
+    # so naming it costs nothing. 'zlib' is deliberately NOT among them: the library the module
+    # links is libz/zlib1, which ships in 'libzlib', and host 'zlib' exports a pin on that. Naming
+    # 'zlib' here adds a second, unpinned dependency on the development package instead.
     - python
-    - glew
-    - libglu     # [linux]
-    - qt-main <6 # Qt5
+    # The floor is NPY_TARGET_VERSION in 'src/global/python.h' (as is 'numpy>=' in 'pyproject.toml').
+    # NumPy's run_export carries a floor of its own, from its headers' default target, which need
+    # not be the same as ours; conda installs a version that satisfies both.
+    - numpy >=1.19
+    - qt6-main
     - libgdal
     - proj
-    - qwt <=6.2.0  # Use a version that only works with Qt5
-    - zlib
 
 test:
   source_files:
     - pygplates/test
+    - cmake/check_linkage.py
+  requires:
+    # check_linkage.py lists dependencies with readelf on Linux (unprefixed, from 'binutils').
+    - binutils  # [linux]
   imports:
     - pygplates
   commands:
-    - python pygplates/test/test.py
+    # Mirrors the wheel test-command in pyproject.toml. '-X faulthandler' prints the Python stack if
+    # the native module crashes. test.py writes into its own fixtures/ (source_files are copied to a
+    # writable directory) and fails unless at least 400 tests ran.
+    - python -X faulthandler pygplates/test/test.py
+    # Fails if the installed module links Qwt/GLEW/OpenGL/Qt Gui|Widgets|Svg. Skipped on Windows:
+    # dumpbin is not on PATH in a conda test environment and the script fails loudly without its
+    # lister (the wheel CI covers Windows linkage).
+    - python cmake/check_linkage.py --installed  # [not win]
 
 about:
   home: https://www.gplates.org/
