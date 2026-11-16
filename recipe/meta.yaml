@@ -76,6 +76,8 @@ requirements:
 test:
   source_files:
     - pygplates/test
+    # Inputs a test reads from outside pygplates/test, as in 'test-sources' in pyproject.toml.
+    - src/unit-test/data/polygon-overlay/inconsistent.txt  # test_partition_error
     - cmake/check_linkage.py
   requires:
     # check_linkage.py lists dependencies with readelf on Linux (unprefixed, from 'binutils').
