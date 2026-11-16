@@ -125,10 +125,10 @@ Current release info
 Installing pygplates
 ====================
 
-Installing `pygplates` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `pygplates` from the `conda-forge/label/pygplates_rc` channel can be achieved by adding `conda-forge/label/pygplates_rc` to your channels with:
 
 ```
-conda config --add channels conda-forge
+conda config --add channels conda-forge/label/pygplates_rc
 conda config --set channel_priority strict
 ```
 
@@ -174,7 +174,7 @@ It is possible to list all of the versions of `pygplates` available on your plat
 <summary>With conda</summary>
 
 ```
-conda search pygplates --channel conda-forge
+conda search pygplates --channel conda-forge/label/pygplates_rc
 ```
 
 </details>
@@ -183,7 +183,7 @@ conda search pygplates --channel conda-forge
 <summary>With mamba</summary>
 
 ```
-mamba search pygplates --channel conda-forge
+mamba search pygplates --channel conda-forge/label/pygplates_rc
 ```
 
 </details>
@@ -192,7 +192,7 @@ mamba search pygplates --channel conda-forge
 <summary>With pixi</summary>
 
 ```
-pixi search pygplates --channel conda-forge
+pixi search pygplates --channel conda-forge/label/pygplates_rc
 ```
 
 </details>
@@ -202,16 +202,17 @@ pixi search pygplates --channel conda-forge
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search pygplates --channel conda-forge
+mamba repoquery search pygplates --channel conda-forge/label/pygplates_rc
 
 # List packages depending on `pygplates`:
-mamba repoquery whoneeds pygplates --channel conda-forge
+mamba repoquery whoneeds pygplates --channel conda-forge/label/pygplates_rc
 
 # List dependencies of `pygplates`:
-mamba repoquery depends pygplates --channel conda-forge
+mamba repoquery depends pygplates --channel conda-forge/label/pygplates_rc
 ```
 
 </details>
+
 
 
 About conda-forge
@@ -228,9 +229,7 @@ for each of the installable packages. Such a repository is known as a *feedstock
 A feedstock is made up of a conda recipe (the instructions on what and how to build
 the package) and the necessary configurations for automatic building using freely
 available continuous integration services. Thanks to the awesome service provided by
-[Azure](https://azure.microsoft.com/en-us/services/devops/), [GitHub](https://github.com/),
-[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
-[Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
+[Azure](https://azure.microsoft.com/en-us/services/devops/) and [GitHub](https://github.com/)
 it is possible to build and upload installable packages to the
 [conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.

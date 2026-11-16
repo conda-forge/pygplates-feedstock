@@ -5,11 +5,9 @@ c_stdlib:
 channel_sources:
 - conda-forge
 channel_targets:
-- conda-forge main
+- conda-forge pygplates_rc
 cxx_compiler:
 - vs2022
-glew:
-- '2.3'
 gmp:
 - '6'
 libboost_devel:
@@ -30,10 +28,9 @@ proj:
 - '9.9'
 python:
 - 3.13.* *_cp313
+qt6_main:
+- '6.11'
 target_platform:
 - win-64
-zip_keys:
-- - python
-  - channel_sources
 zlib:
 - '1'
