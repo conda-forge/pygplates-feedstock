@@ -3,7 +3,8 @@
 # Copied from 'pygplates/conda/' in the GPlates repository (branch 'release/pygplates-1.1'),
 # switched to its FEEDSTOCK form: a literal version, and the PyPI sdist as the source. That
 # directory's README.md says why the recipe is the way it is. The version must be set ABOVE
-# 'package:' - Jinja runs '{% set %}' statements in document order.
+# 'package:' - Jinja runs set statements in document order. (No Jinja delimiters in comments:
+# the conda-forge linter renders them.)
 {% set version = "1.1.0rc1" %}
 
 package:
